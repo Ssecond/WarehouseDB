@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace DataBase
 {
-    public partial class ProgramAbout : Form
+    public partial class EditTabelForm : Form
     {
-        public ProgramAbout()
+        public EditTabelForm()
         {
             InitializeComponent();
         }

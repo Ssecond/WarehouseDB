@@ -58,19 +58,26 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Table.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="viewTables.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="Table.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="viewTables.Location" type="System.Drawing.Point, System.Drawing">
     <value>5, 22</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Table.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="viewTables.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 2, 3, 2</value>
   </data>
-  <data name="Table.Size" type="System.Drawing.Size, System.Drawing">
-    <value>734, 486</value>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="viewTables.RowHeadersWidth" type="System.Int32, mscorlib">
+    <value>51</value>
+  </data>
+  <data name="viewTables.Size" type="System.Drawing.Size, System.Drawing">
+    <value>734, 491</value>
+  </data>
+  <data name="viewTables.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
   <data name="Close.Location" type="System.Drawing.Point, System.Drawing">
     <value>10, 260</value>
@@ -97,10 +104,10 @@
     <value>3, 2, 3, 2</value>
   </data>
   <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>745, 512</value>
+    <value>745, 517</value>
   </data>
   <data name="groupBox1.Text" xml:space="preserve">
-    <value>Редактор таблиц</value>
+    <value>Просмотр таблиц</value>
   </data>
   <data name="groupBox2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left</value>
@@ -118,7 +125,7 @@
     <value>3, 2, 3, 2</value>
   </data>
   <data name="groupBox2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>348, 512</value>
+    <value>348, 517</value>
   </data>
   <data name="groupBox2.Text" xml:space="preserve">
     <value>Таблицы</value>
@@ -126,7 +133,6 @@
   <data name="listOfTables.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="listOfTables.ItemHeight" type="System.Int32, mscorlib">
     <value>15</value>
   </data>
@@ -139,11 +145,32 @@
   <data name="listOfTables.Size" type="System.Drawing.Size, System.Drawing">
     <value>338, 484</value>
   </data>
+  <data name="menuStrip1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 2, 0, 2</value>
+  </data>
+  <data name="menuStrip1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1119, 24</value>
+  </data>
+  <data name="menuStrip1.Text" xml:space="preserve">
+    <value>menuStrip1</value>
+  </data>
   <data name="FileToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>48, 20</value>
   </data>
   <data name="FileToolStripMenuItem.Text" xml:space="preserve">
     <value>Файл</value>
+  </data>
+  <data name="RefreshToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>172, 22</value>
+  </data>
+  <data name="RefreshToolStripMenuItem.Text" xml:space="preserve">
+    <value>Обновить данные</value>
+  </data>
+  <data name="ExitToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>172, 22</value>
+  </data>
+  <data name="ExitToolStripMenuItem.Text" xml:space="preserve">
+    <value>Выход</value>
   </data>
   <data name="EditToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>59, 20</value>
@@ -157,37 +184,37 @@
   <data name="QAToolStripMenuItem.Text" xml:space="preserve">
     <value>Справка</value>
   </data>
-  <data name="menuStrip1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 2, 0, 2</value>
-  </data>
-  <data name="menuStrip1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1119, 24</value>
-  </data>
-  <data name="menuStrip1.Text" xml:space="preserve">
-    <value>menuStrip1</value>
-  </data>
-  <data name="OpenDBToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>183, 22</value>
-  </data>
-  <data name="OpenDBToolStripMenuItem.Text" xml:space="preserve">
-    <value>Подключиться к БД</value>
-  </data>
-  <data name="ExitToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>183, 22</value>
-  </data>
-  <data name="ExitToolStripMenuItem.Text" xml:space="preserve">
-    <value>Выход</value>
-  </data>
   <data name="AboutProgramToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>149, 22</value>
   </data>
   <data name="AboutProgramToolStripMenuItem.Text" xml:space="preserve">
     <value>О программе</value>
+  </data>
+  <data name="editNote.Size" type="System.Drawing.Size, System.Drawing">
+    <value>218, 23</value>
+  </data>
+  <data name="editNote.Text" xml:space="preserve">
+    <value>Открыть запись для редактирования</value>
+  </data>
+  <data name="exit.Text" xml:space="preserve">
+    <value>Выйти</value>
+  </data>
+  <data name="createNewNote.Size" type="System.Drawing.Size, System.Drawing">
+    <value>143, 23</value>
+  </data>
+  <data name="createNewNote.Text" xml:space="preserve">
+    <value>Создать новую запись</value>
+  </data>
+  <data name="deleteNote.Size" type="System.Drawing.Size, System.Drawing">
+    <value>104, 23</value>
+  </data>
+  <data name="deleteNote.Text" xml:space="preserve">
+    <value>Удалить запись</value>
   </data>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>7, 15</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1119, 565</value>
+    <value>1119, 597</value>
   </data>
 </root>
