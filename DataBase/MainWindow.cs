@@ -25,7 +25,7 @@ namespace DataBase
         private DataSet? dataSet;
         private BindingSource? bindingSource;
         private List<Dictionary<string, int>> dictionaries;
-        private void LoadDB()
+        private void UpdateData()
         {
             try
             {
@@ -53,6 +53,9 @@ namespace DataBase
                 streetsAdapter.Fill(dataSet, tableNames[4]);
 
                 dictionaries = CreateDictionaries();
+
+                viewTables.DataSource = dataSet.Tables[listOfTables.SelectedIndex];
+                viewTables.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
             }
             catch (Exception unknownExeption)
             {
@@ -64,15 +67,13 @@ namespace DataBase
             }
         }
 
-        private void RefreshToolStripMenuItem_Click(object sender, EventArgs e) => LoadDB();
+        private void RefreshToolStripMenuItem_Click(object sender, EventArgs e) => UpdateData();
 
         private void ExitToolStripMenuItem_Click(object sender, EventArgs e) => this.Close();
 
         private void listOfTables_SelectedValueChanged(object sender, EventArgs e)
         {
-            LoadDB();
-            viewTables.DataSource = dataSet.Tables[listOfTables.SelectedIndex];
-            viewTables.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            UpdateData();
         }
 
         private void AboutProgramToolStripMenuItem_Click(object sender, EventArgs e)
@@ -132,7 +133,13 @@ namespace DataBase
             {
                 connection.Close();
             }
-            LoadDB();
+            UpdateData();
+        }
+
+        private void createNewNote_Click(object sender, EventArgs e)
+        {
+            StreetsForm streetsForm = new StreetsForm();
+            streetsForm.ShowDialog();
         }
     }
 }

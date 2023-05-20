@@ -150,6 +150,7 @@
             resources.ApplyResources(createNewNote, "createNewNote");
             createNewNote.Name = "createNewNote";
             createNewNote.UseVisualStyleBackColor = true;
+            createNewNote.Click += createNewNote_Click;
             // 
             // deleteNote
             // 
