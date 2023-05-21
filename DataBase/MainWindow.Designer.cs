@@ -137,6 +137,7 @@
             resources.ApplyResources(editNote, "editNote");
             editNote.Name = "editNote";
             editNote.UseVisualStyleBackColor = true;
+            editNote.Click += editNote_Click;
             // 
             // exit
             // 

@@ -23,14 +23,12 @@ namespace DataBase
         }
 
         private DataSet? dataSet;
-        private BindingSource? bindingSource;
         private List<Dictionary<string, int>> dictionaries;
         private void UpdateData()
         {
             try
             {
                 dataSet = new DataSet();
-                // bindingSource = new BindingSource();
 
                 connection.Open();
 
@@ -138,8 +136,60 @@ namespace DataBase
 
         private void createNewNote_Click(object sender, EventArgs e)
         {
-            StreetsForm streetsForm = new StreetsForm();
-            streetsForm.ShowDialog();
+            if (listOfTables.Text == tableNames[0])
+            {
+                CustomersForm customersForm = new CustomersForm();
+                customersForm.ShowDialog();
+            }
+            else if (listOfTables.Text == tableNames[1])
+            {
+                GoodsForm goodsForm = new GoodsForm();
+                goodsForm.ShowDialog();
+            }
+            else if (listOfTables.Text == tableNames[2])
+            {
+                PackagesForm packagesForm = new PackagesForm();
+                packagesForm.ShowDialog();
+            }
+            else if (listOfTables.Text == tableNames[3])
+            {
+                ProducersForm producersForm = new ProducersForm();
+                producersForm.ShowDialog();
+            }
+            else if (listOfTables.Text == tableNames[4])
+            {
+                StreetsForm streetsForm = new StreetsForm();
+                streetsForm.ShowDialog();
+            }
+        }
+
+        private void editNote_Click(object sender, EventArgs e)
+        {
+            if (listOfTables.Text == tableNames[0])
+            {
+                CustomersForm customersForm = new CustomersForm();
+                customersForm.ShowDialog();
+            }
+            else if (listOfTables.Text == tableNames[1])
+            {
+                GoodsForm goodsForm = new GoodsForm();
+                goodsForm.ShowDialog();
+            }
+            else if (listOfTables.Text == tableNames[2])
+            {
+                PackagesForm packagesForm = new PackagesForm();
+                packagesForm.ShowDialog();
+            }
+            else if (listOfTables.Text == tableNames[3])
+            {
+                ProducersForm producersForm = new ProducersForm();
+                producersForm.ShowDialog();
+            }
+            else if (listOfTables.Text == tableNames[4])
+            {
+                StreetsForm streetsForm = new StreetsForm();
+                streetsForm.ShowDialog();
+            }
         }
     }
 }
