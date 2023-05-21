@@ -38,12 +38,14 @@
             name = new Label();
             nameSign = new Label();
             order = new Label();
+            idLabel = new Label();
+            idTextBox = new TextBox();
             SuspendLayout();
             // 
             // saveChanges
             // 
             saveChanges.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            saveChanges.Location = new Point(446, 107);
+            saveChanges.Location = new Point(446, 135);
             saveChanges.Name = "saveChanges";
             saveChanges.Size = new Size(194, 23);
             saveChanges.TabIndex = 0;
@@ -53,7 +55,7 @@
             // closeForm
             // 
             closeForm.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            closeForm.Location = new Point(18, 107);
+            closeForm.Location = new Point(18, 135);
             closeForm.Name = "closeForm";
             closeForm.Size = new Size(115, 23);
             closeForm.TabIndex = 1;
@@ -63,7 +65,7 @@
             // insertNewNote
             // 
             insertNewNote.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            insertNewNote.Location = new Point(646, 107);
+            insertNewNote.Location = new Point(646, 135);
             insertNewNote.Name = "insertNewNote";
             insertNewNote.Size = new Size(145, 23);
             insertNewNote.TabIndex = 2;
@@ -73,7 +75,7 @@
             // clearForm
             // 
             clearForm.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            clearForm.Location = new Point(228, 107);
+            clearForm.Location = new Point(228, 135);
             clearForm.Name = "clearForm";
             clearForm.Size = new Size(128, 23);
             clearForm.TabIndex = 3;
@@ -83,7 +85,7 @@
             // textBox1
             // 
             textBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            textBox1.Location = new Point(228, 12);
+            textBox1.Location = new Point(228, 37);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(557, 23);
             textBox1.TabIndex = 4;
@@ -91,7 +93,7 @@
             // textBox2
             // 
             textBox2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            textBox2.Location = new Point(228, 41);
+            textBox2.Location = new Point(228, 66);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(557, 23);
             textBox2.TabIndex = 5;
@@ -100,7 +102,7 @@
             // 
             checkBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(228, 70);
+            checkBox1.Location = new Point(228, 95);
             checkBox1.Name = "checkBox1";
             checkBox1.Size = new Size(15, 14);
             checkBox1.TabIndex = 6;
@@ -109,7 +111,7 @@
             // name
             // 
             name.AutoSize = true;
-            name.Location = new Point(12, 12);
+            name.Location = new Point(12, 37);
             name.Name = "name";
             name.Size = new Size(59, 15);
             name.TabIndex = 7;
@@ -118,7 +120,7 @@
             // nameSign
             // 
             nameSign.AutoSize = true;
-            nameSign.Location = new Point(12, 44);
+            nameSign.Location = new Point(12, 69);
             nameSign.Name = "nameSign";
             nameSign.Size = new Size(210, 15);
             nameSign.TabIndex = 7;
@@ -127,22 +129,42 @@
             // order
             // 
             order.AutoSize = true;
-            order.Location = new Point(12, 70);
+            order.Location = new Point(12, 95);
             order.Name = "order";
             order.Size = new Size(197, 15);
             order.TabIndex = 7;
             order.Text = "Порядок (до названия ли признак)";
             // 
+            // idLabel
+            // 
+            idLabel.AutoSize = true;
+            idLabel.Location = new Point(12, 9);
+            idLabel.Name = "idLabel";
+            idLabel.Size = new Size(24, 15);
+            idLabel.TabIndex = 7;
+            idLabel.Text = "ИД";
+            // 
+            // idTextBox
+            // 
+            idTextBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            idTextBox.Location = new Point(228, 6);
+            idTextBox.Name = "idTextBox";
+            idTextBox.ReadOnly = true;
+            idTextBox.Size = new Size(557, 23);
+            idTextBox.TabIndex = 4;
+            // 
             // StreetsForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(797, 143);
+            ClientSize = new Size(797, 171);
             Controls.Add(order);
             Controls.Add(nameSign);
+            Controls.Add(idLabel);
             Controls.Add(name);
             Controls.Add(checkBox1);
             Controls.Add(textBox2);
+            Controls.Add(idTextBox);
             Controls.Add(textBox1);
             Controls.Add(clearForm);
             Controls.Add(insertNewNote);
@@ -166,5 +188,7 @@
         private Label name;
         private Label nameSign;
         private Label order;
+        private Label idLabel;
+        private TextBox idTextBox;
     }
 }

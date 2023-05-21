@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace DataBase
 {
-    public partial class Streets : Form
+    public partial class PackagesForm : Form
     {
-        public Streets()
+        public PackagesForm()
         {
             InitializeComponent();
         }
