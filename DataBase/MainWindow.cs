@@ -138,7 +138,7 @@ namespace DataBase
         {
             if (listOfTables.Text == tableNames[0])
             {
-                CustomersForm customersForm = new CustomersForm();
+                CustomersForm customersForm = new CustomersForm(true, connection);
                 customersForm.ShowDialog();
             }
             else if (listOfTables.Text == tableNames[1])
@@ -167,7 +167,7 @@ namespace DataBase
         {
             if (listOfTables.Text == tableNames[0])
             {
-                CustomersForm customersForm = new CustomersForm();
+                CustomersForm customersForm = new CustomersForm(false, connection);
                 customersForm.ShowDialog();
             }
             else if (listOfTables.Text == tableNames[1])

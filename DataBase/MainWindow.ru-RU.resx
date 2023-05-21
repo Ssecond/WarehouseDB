@@ -196,14 +196,11 @@
   <data name="groupBox2.Text" xml:space="preserve">
     <value>Таблицы</value>
   </data>
-  <data name="RefreshToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>172, 22</value>
-  </data>
   <data name="RefreshToolStripMenuItem.Text" xml:space="preserve">
     <value>Обновить данные</value>
   </data>
   <data name="ExitToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>172, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="ExitToolStripMenuItem.Text" xml:space="preserve">
     <value>Выход</value>
@@ -214,14 +211,8 @@
   <data name="FileToolStripMenuItem.Text" xml:space="preserve">
     <value>Файл</value>
   </data>
-  <data name="EditToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>59, 20</value>
-  </data>
-  <data name="EditToolStripMenuItem.Text" xml:space="preserve">
-    <value>Правка</value>
-  </data>
   <data name="AboutProgramToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>149, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="AboutProgramToolStripMenuItem.Text" xml:space="preserve">
     <value>О программе</value>

@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             houseNumberLabel = new Label();
-            houseNumberTTextBox = new TextBox();
+            houseNumberTextBox = new TextBox();
             sellerSurnameLabel = new Label();
             sellerSurnameTextBox = new TextBox();
             givenDate = new Label();
@@ -37,7 +37,7 @@
             countLabel = new Label();
             countTextBox = new TextBox();
             soldDateTextBox = new TextBox();
-            goodsCheckBox = new ComboBox();
+            goodsTextBox = new ComboBox();
             isCashLabel = new Label();
             soldDateLabel = new Label();
             outCheckLabel = new Label();
@@ -65,11 +65,11 @@
             // 
             // houseNumberTTextBox
             // 
-            houseNumberTTextBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            houseNumberTTextBox.Location = new Point(228, 267);
-            houseNumberTTextBox.Name = "houseNumberTTextBox";
-            houseNumberTTextBox.Size = new Size(584, 23);
-            houseNumberTTextBox.TabIndex = 45;
+            houseNumberTextBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            houseNumberTextBox.Location = new Point(228, 267);
+            houseNumberTextBox.Name = "houseNumberTTextBox";
+            houseNumberTextBox.Size = new Size(584, 23);
+            houseNumberTextBox.TabIndex = 45;
             // 
             // sellerSurnameLabel
             // 
@@ -130,14 +130,14 @@
             soldDateTextBox.Size = new Size(584, 23);
             soldDateTextBox.TabIndex = 41;
             // 
-            // goodsCheckBox
+            // goodsTextBox
             // 
-            goodsCheckBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            goodsCheckBox.FormattingEnabled = true;
-            goodsCheckBox.Location = new Point(228, 10);
-            goodsCheckBox.Name = "goodsCheckBox";
-            goodsCheckBox.Size = new Size(584, 23);
-            goodsCheckBox.TabIndex = 40;
+            goodsTextBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            goodsTextBox.FormattingEnabled = true;
+            goodsTextBox.Location = new Point(228, 10);
+            goodsTextBox.Name = "goodsTextBox";
+            goodsTextBox.Size = new Size(584, 23);
+            goodsTextBox.TabIndex = 40;
             // 
             // isCashLabel
             // 
@@ -238,6 +238,7 @@
             insertNewNote.TabIndex = 25;
             insertNewNote.Text = "Вставить новую запись";
             insertNewNote.UseVisualStyleBackColor = true;
+            insertNewNote.Click += insertNewNote_Click;
             // 
             // closeForm
             // 
@@ -274,7 +275,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(824, 340);
             Controls.Add(houseNumberLabel);
-            Controls.Add(houseNumberTTextBox);
+            Controls.Add(houseNumberTextBox);
             Controls.Add(sellerSurnameLabel);
             Controls.Add(sellerSurnameTextBox);
             Controls.Add(givenDate);
@@ -283,7 +284,7 @@
             Controls.Add(countTextBox);
             Controls.Add(soldDateTextBox);
             Controls.Add(streetComboBox);
-            Controls.Add(goodsCheckBox);
+            Controls.Add(goodsTextBox);
             Controls.Add(isCashLabel);
             Controls.Add(soldDateLabel);
             Controls.Add(outCheckLabel);
@@ -305,7 +306,7 @@
 
         #endregion
         private Label houseNumberLabel;
-        private TextBox houseNumberTTextBox;
+        private TextBox houseNumberTextBox;
         private Label sellerSurnameLabel;
         private TextBox sellerSurnameTextBox;
         private Label givenDate;
@@ -313,7 +314,7 @@
         private Label countLabel;
         private TextBox countTextBox;
         private TextBox soldDateTextBox;
-        private ComboBox goodsCheckBox;
+        private ComboBox goodsTextBox;
         private Label isCashLabel;
         private Label soldDateLabel;
         private Label outCheckLabel;
@@ -322,7 +323,6 @@
         private Label idLabel;
         private TextBox sumTextBox;
         private Label streetLabel;
-        private TextBox signData;
         private CheckBox isCashCheckBox;
         private TextBox TIN;
         private Button clearForm;

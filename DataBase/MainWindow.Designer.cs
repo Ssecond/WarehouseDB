@@ -38,7 +38,6 @@
             FileToolStripMenuItem = new ToolStripMenuItem();
             RefreshToolStripMenuItem = new ToolStripMenuItem();
             ExitToolStripMenuItem = new ToolStripMenuItem();
-            EditToolStripMenuItem = new ToolStripMenuItem();
             QAToolStripMenuItem = new ToolStripMenuItem();
             AboutProgramToolStripMenuItem = new ToolStripMenuItem();
             editNote = new Button();
@@ -94,7 +93,7 @@
             // 
             resources.ApplyResources(menuStrip1, "menuStrip1");
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { FileToolStripMenuItem, EditToolStripMenuItem, QAToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { FileToolStripMenuItem, QAToolStripMenuItem });
             menuStrip1.Name = "menuStrip1";
             // 
             // FileToolStripMenuItem
@@ -114,11 +113,6 @@
             resources.ApplyResources(ExitToolStripMenuItem, "ExitToolStripMenuItem");
             ExitToolStripMenuItem.Name = "ExitToolStripMenuItem";
             ExitToolStripMenuItem.Click += ExitToolStripMenuItem_Click;
-            // 
-            // EditToolStripMenuItem
-            // 
-            resources.ApplyResources(EditToolStripMenuItem, "EditToolStripMenuItem");
-            EditToolStripMenuItem.Name = "EditToolStripMenuItem";
             // 
             // QAToolStripMenuItem
             // 
@@ -191,7 +185,6 @@
         private GroupBox groupBox2;
         private MenuStrip menuStrip1;
         private ToolStripMenuItem FileToolStripMenuItem;
-        private ToolStripMenuItem EditToolStripMenuItem;
         private ToolStripMenuItem QAToolStripMenuItem;
         private ToolStripMenuItem RefreshToolStripMenuItem;
         private ToolStripMenuItem ExitToolStripMenuItem;
