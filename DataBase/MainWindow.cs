@@ -1,4 +1,6 @@
+using DocumentFormat.OpenXml.Office.Word;
 using Npgsql;
+using NpgsqlTypes;
 using System;
 using System.Data;
 using System.Resources;
@@ -207,6 +209,55 @@ namespace DataBase
             {
                 StreetsForm streetsForm = new StreetsForm();
                 streetsForm.ShowDialog();
+            }
+        }
+
+        private void CheaperThanNToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string command = $"SELECT * FROM {tableNames[1]} WHERE Цена < @p1";
+                connection.Open();
+
+                NpgsqlCommand com = new NpgsqlCommand(command, connection);
+                com.Parameters.AddWithValue("@p1", NpgsqlDbType.Numeric, int.Parse(CheperNTextBox.Text));
+                NpgsqlDataAdapter customersAdapter = new NpgsqlDataAdapter(com);
+                customersAdapter.Fill(dataSet, "Запрос");
+
+                ExcelQueryForm excelQueryForm = new ExcelQueryForm(dataSet);
+                excelQueryForm.ShowDialog();
+            }
+            catch (Exception unknownExeption)
+            {
+                MessageBox.Show(unknownExeption.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        private void ExpriredGoodsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string command = $"SELECT * FROM {tableNames[1]} WHERE \"Срок годности\" - \"Дата производства\" < 0";
+                connection.Open();
+
+                NpgsqlCommand com = new NpgsqlCommand(command, connection);
+                NpgsqlDataAdapter customersAdapter = new NpgsqlDataAdapter(com);
+                customersAdapter.Fill(dataSet, "Запрос");
+
+                ExcelQueryForm excelQueryForm = new ExcelQueryForm(dataSet);
+                excelQueryForm.ShowDialog();
+            }
+            catch (Exception unknownExeption)
+            {
+                MessageBox.Show(unknownExeption.Message);
+            }
+            finally
+            {
+                connection.Close();
             }
         }
     }

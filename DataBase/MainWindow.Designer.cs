@@ -40,10 +40,14 @@
             ExitToolStripMenuItem = new ToolStripMenuItem();
             QAToolStripMenuItem = new ToolStripMenuItem();
             AboutProgramToolStripMenuItem = new ToolStripMenuItem();
+            запросыToolStripMenuItem = new ToolStripMenuItem();
+            CheaperThanNToolStripMenuItem = new ToolStripMenuItem();
+            ExpriredGoodsToolStripMenuItem = new ToolStripMenuItem();
             editNote = new Button();
             exit = new Button();
             createNewNote = new Button();
             deleteNote = new Button();
+            CheperNTextBox = new ToolStripTextBox();
             ((System.ComponentModel.ISupportInitialize)viewTables).BeginInit();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
@@ -93,7 +97,7 @@
             // 
             resources.ApplyResources(menuStrip1, "menuStrip1");
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { FileToolStripMenuItem, QAToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { FileToolStripMenuItem, QAToolStripMenuItem, запросыToolStripMenuItem });
             menuStrip1.Name = "menuStrip1";
             // 
             // FileToolStripMenuItem
@@ -126,6 +130,25 @@
             AboutProgramToolStripMenuItem.Name = "AboutProgramToolStripMenuItem";
             AboutProgramToolStripMenuItem.Click += AboutProgramToolStripMenuItem_Click;
             // 
+            // запросыToolStripMenuItem
+            // 
+            resources.ApplyResources(запросыToolStripMenuItem, "запросыToolStripMenuItem");
+            запросыToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { CheaperThanNToolStripMenuItem, ExpriredGoodsToolStripMenuItem });
+            запросыToolStripMenuItem.Name = "запросыToolStripMenuItem";
+            // 
+            // CheaperThanNToolStripMenuItem
+            // 
+            resources.ApplyResources(CheaperThanNToolStripMenuItem, "CheaperThanNToolStripMenuItem");
+            CheaperThanNToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { CheperNTextBox });
+            CheaperThanNToolStripMenuItem.Name = "CheaperThanNToolStripMenuItem";
+            CheaperThanNToolStripMenuItem.Click += CheaperThanNToolStripMenuItem_Click;
+            // 
+            // ExpriredGoodsToolStripMenuItem
+            // 
+            resources.ApplyResources(ExpriredGoodsToolStripMenuItem, "ExpriredGoodsToolStripMenuItem");
+            ExpriredGoodsToolStripMenuItem.Name = "ExpriredGoodsToolStripMenuItem";
+            ExpriredGoodsToolStripMenuItem.Click += ExpriredGoodsToolStripMenuItem_Click;
+            // 
             // editNote
             // 
             resources.ApplyResources(editNote, "editNote");
@@ -153,6 +176,11 @@
             deleteNote.Name = "deleteNote";
             deleteNote.UseVisualStyleBackColor = true;
             deleteNote.Click += deleteNote_Click;
+            // 
+            // CheperNTextBox
+            // 
+            resources.ApplyResources(CheperNTextBox, "CheperNTextBox");
+            CheperNTextBox.Name = "CheperNTextBox";
             // 
             // MainWindow
             // 
@@ -194,5 +222,9 @@
         private Button exit;
         private Button createNewNote;
         private Button deleteNote;
+        private ToolStripMenuItem запросыToolStripMenuItem;
+        private ToolStripMenuItem CheaperThanNToolStripMenuItem;
+        private ToolStripMenuItem ExpriredGoodsToolStripMenuItem;
+        private ToolStripTextBox CheperNTextBox;
     }
 }

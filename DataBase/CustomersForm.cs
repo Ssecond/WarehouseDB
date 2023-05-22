@@ -9,7 +9,7 @@ namespace DataBase
         private NpgsqlConnection connection;
         private List<Dictionary<string, int>> dictionaries;
         private List<string>[] keys;
-        public CustomersForm(bool isNewNoteAdding, NpgsqlConnection connection, List<Dictionary<string, int>> dictionaries, List<string>[] keys, DataGridViewCellCollection selectedRowCells = null)
+        public CustomersForm(bool isNewNoteAdding, NpgsqlConnection connection, List<Dictionary<string, int>> dictionaries, List<string>[] keys, DataGridViewCellCollection? selectedRowCells = null)
         {
             InitializeComponent();
             if (isNewNoteAdding)
@@ -40,7 +40,7 @@ namespace DataBase
 
         private void insertNewNote_Click(object sender, EventArgs e)
         {
-            string command = $"INSERT INTO Покупатели (Товар, Улица, ИНН, Наличные, Сумма, \"Дата продажи\", \"Кол-во\", Телефон, \"Фамилия продавца\", \"Номер здания\")" +
+            string command = "INSERT INTO Покупатели (Товар, Улица, ИНН, Наличные, Сумма, \"Дата продажи\", \"Кол-во\", Телефон, \"Фамилия продавца\", \"Номер здания\")" +
              "VALUES (@p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10)";
             try
             {
@@ -63,9 +63,9 @@ namespace DataBase
                 connection.Open();
                 cmd.ExecuteNonQuery();
             }
-            catch (Exception ex)
+            catch (Exception exception)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(exception.Message);
             }
             finally
             {
@@ -85,18 +85,50 @@ namespace DataBase
         private void clearForm_Click(object sender, EventArgs e)
         {
             foreach (Control control in this.Controls)
-                if (control is System.Windows.Forms.TextBox)
-                    ((System.Windows.Forms.TextBox)control).Text = string.Empty;
-                else if (control is System.Windows.Forms.ComboBox)
-                    ((System.Windows.Forms.ComboBox)control).SelectedItem = null;
-                else if (control is System.Windows.Forms.CheckBox)
-                    ((System.Windows.Forms.CheckBox)control).Checked = false;
+                if (control is TextBox)
+                    ((TextBox)control).Text = string.Empty;
+                else if (control is ComboBox)
+                    ((ComboBox)control).SelectedItem = null;
+                else if (control is CheckBox)
+                    ((CheckBox)control).Checked = false;
         }
 
         private void saveChanges_Click(object sender, EventArgs e)
         {
+            string command = "UPDATE Покупатели SET Товар = @p1, Улица = @p2, " +
+                             "ИНН = @p3, Наличные = @p4, Сумма = @p5, \"Дата продажи\" = @p6, " +
+                             "\"Кол-во\" = @p7, Телефон = @p8, \"Фамилия продавца\" = @p9, " +
+                             "\"Номер здания\" = @p10 " +
+                             "where \"ИНН\" = @p3";
+            if (FormIsFilled())
+                throw new Exception("Заполните все обязательные поля!");
 
-            
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand(command, connection);
+
+                cmd.Parameters.AddWithValue("@p1", dictionaries[2][(string)goodsComboBox.SelectedItem]);
+                cmd.Parameters.AddWithValue("@p2", dictionaries[0][(string)streetComboBox.SelectedItem]);
+                cmd.Parameters.AddWithValue("@p3", int.Parse(TIN.Text));
+                cmd.Parameters.AddWithValue("@p4", isCashCheckBox.Checked);
+                cmd.Parameters.AddWithValue("@p5", int.Parse(sumTextBox.Text));
+                cmd.Parameters.AddWithValue("@p6", DateTime.Parse(soldDateTextBox.Text));
+                cmd.Parameters.AddWithValue("@p7", int.Parse(countTextBox.Text));
+                cmd.Parameters.AddWithValue("@p8", phoneNumberTextBox.Text);
+                cmd.Parameters.AddWithValue("@p9", sellerSurnameTextBox.Text);
+                cmd.Parameters.AddWithValue("@p10", int.Parse(houseNumberTextBox.Text));
+
+                connection.Open();
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
     }
 }

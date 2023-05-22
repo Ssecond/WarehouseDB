@@ -196,11 +196,14 @@
   <data name="groupBox2.Text" xml:space="preserve">
     <value>Таблицы</value>
   </data>
+  <data name="RefreshToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>172, 22</value>
+  </data>
   <data name="RefreshToolStripMenuItem.Text" xml:space="preserve">
     <value>Обновить данные</value>
   </data>
   <data name="ExitToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>172, 22</value>
   </data>
   <data name="ExitToolStripMenuItem.Text" xml:space="preserve">
     <value>Выход</value>
@@ -212,7 +215,7 @@
     <value>Файл</value>
   </data>
   <data name="AboutProgramToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>149, 22</value>
   </data>
   <data name="AboutProgramToolStripMenuItem.Text" xml:space="preserve">
     <value>О программе</value>
@@ -222,6 +225,24 @@
   </data>
   <data name="QAToolStripMenuItem.Text" xml:space="preserve">
     <value>Справка</value>
+  </data>
+  <data name="CheperNTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 23</value>
+  </data>
+  <data name="CheaperThanNToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>202, 22</value>
+  </data>
+  <data name="CheaperThanNToolStripMenuItem.Text" xml:space="preserve">
+    <value>Товары дешевле N</value>
+  </data>
+  <data name="ExpriredGoodsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>202, 22</value>
+  </data>
+  <data name="ExpriredGoodsToolStripMenuItem.Text" xml:space="preserve">
+    <value>Просроченные товары</value>
+  </data>
+  <data name="запросыToolStripMenuItem.Text" xml:space="preserve">
+    <value>Запросы</value>
   </data>
   <data name="menuStrip1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>5, 2, 0, 2</value>
