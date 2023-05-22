@@ -32,8 +32,6 @@
             houseNumberTextBox = new TextBox();
             additionalLabel = new Label();
             additionalTextBox = new TextBox();
-            label3 = new Label();
-            inCheckNumber = new TextBox();
             companyNameLabel = new Label();
             companyName = new TextBox();
             streetComboBox = new ComboBox();
@@ -53,7 +51,7 @@
             // streetLabel
             // 
             streetLabel.AutoSize = true;
-            streetLabel.Location = new Point(13, 213);
+            streetLabel.Location = new Point(12, 185);
             streetLabel.Name = "streetLabel";
             streetLabel.Size = new Size(41, 15);
             streetLabel.TabIndex = 50;
@@ -70,7 +68,7 @@
             // additionalLabel
             // 
             additionalLabel.AutoSize = true;
-            additionalLabel.Location = new Point(12, 184);
+            additionalLabel.Location = new Point(11, 156);
             additionalLabel.Name = "additionalLabel";
             additionalLabel.Size = new Size(192, 15);
             additionalLabel.TabIndex = 49;
@@ -79,27 +77,10 @@
             // additionalTextBox
             // 
             additionalTextBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            additionalTextBox.Location = new Point(228, 181);
+            additionalTextBox.Location = new Point(227, 153);
             additionalTextBox.Name = "additionalTextBox";
             additionalTextBox.Size = new Size(846, 23);
             additionalTextBox.TabIndex = 43;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(12, 154);
-            label3.Name = "label3";
-            label3.Size = new Size(172, 15);
-            label3.TabIndex = 48;
-            label3.Text = "Номер прих. накл. ведомости";
-            // 
-            // inCheckNumber
-            // 
-            inCheckNumber.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            inCheckNumber.Location = new Point(228, 151);
-            inCheckNumber.Name = "inCheckNumber";
-            inCheckNumber.Size = new Size(846, 23);
-            inCheckNumber.TabIndex = 42;
             // 
             // companyNameLabel
             // 
@@ -121,8 +102,9 @@
             // streetComboBox
             // 
             streetComboBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            streetComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             streetComboBox.FormattingEnabled = true;
-            streetComboBox.Location = new Point(229, 213);
+            streetComboBox.Location = new Point(228, 185);
             streetComboBox.Name = "streetComboBox";
             streetComboBox.Size = new Size(846, 23);
             streetComboBox.TabIndex = 40;
@@ -192,54 +174,56 @@
             // clearForm
             // 
             clearForm.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            clearForm.Location = new Point(217, 256);
+            clearForm.Location = new Point(217, 223);
             clearForm.Name = "clearForm";
             clearForm.Size = new Size(128, 23);
             clearForm.TabIndex = 26;
             clearForm.Text = "Отчистить все поля";
             clearForm.UseVisualStyleBackColor = true;
+            clearForm.Click += clearForm_Click;
             // 
             // insertNewNote
             // 
             insertNewNote.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            insertNewNote.Location = new Point(930, 256);
+            insertNewNote.Location = new Point(930, 223);
             insertNewNote.Name = "insertNewNote";
             insertNewNote.Size = new Size(145, 23);
             insertNewNote.TabIndex = 25;
             insertNewNote.Text = "Вставить новую запись";
             insertNewNote.UseVisualStyleBackColor = true;
+            insertNewNote.Click += insertNewNote_Click;
             // 
             // closeForm
             // 
             closeForm.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            closeForm.Location = new Point(7, 256);
+            closeForm.Location = new Point(7, 223);
             closeForm.Name = "closeForm";
             closeForm.Size = new Size(115, 23);
             closeForm.TabIndex = 24;
             closeForm.Text = "Закрыть форму";
             closeForm.UseVisualStyleBackColor = true;
+            closeForm.Click += closeForm_Click;
             // 
             // saveChanges
             // 
             saveChanges.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            saveChanges.Location = new Point(730, 256);
+            saveChanges.Location = new Point(730, 223);
             saveChanges.Name = "saveChanges";
             saveChanges.Size = new Size(194, 23);
             saveChanges.TabIndex = 23;
             saveChanges.Text = "Сохранить изменения сущ. зап.";
             saveChanges.UseVisualStyleBackColor = true;
+            saveChanges.Click += saveChanges_Click;
             // 
             // ProducersForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1086, 291);
+            ClientSize = new Size(1086, 258);
             Controls.Add(streetLabel);
             Controls.Add(houseNumberTextBox);
             Controls.Add(additionalLabel);
             Controls.Add(additionalTextBox);
-            Controls.Add(label3);
-            Controls.Add(inCheckNumber);
             Controls.Add(companyNameLabel);
             Controls.Add(companyName);
             Controls.Add(streetComboBox);
@@ -265,8 +249,6 @@
         private TextBox houseNumberTextBox;
         private Label additionalLabel;
         private TextBox additionalTextBox;
-        private Label label3;
-        private TextBox inCheckNumber;
         private Label companyNameLabel;
         private TextBox companyName;
         private ComboBox streetComboBox;

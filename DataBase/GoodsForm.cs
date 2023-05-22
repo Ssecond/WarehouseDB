@@ -1,13 +1,4 @@
 ﻿using Npgsql;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace DataBase
 {
@@ -15,7 +6,6 @@ namespace DataBase
     {
         private NpgsqlConnection connection;
         private List<Dictionary<string, long>> dictionaries;
-        private List<string>[] keys;
         public GoodsForm(bool isNewNoteAdding, NpgsqlConnection connection, List<Dictionary<string, long>> dictionaries, List<string>[] keys, DataGridViewCellCollection? selectedRowCells = null)
         {
             InitializeComponent();
@@ -28,8 +18,6 @@ namespace DataBase
             }
             this.connection = connection;
             this.dictionaries = dictionaries;
-            this.keys = keys;
-
 
             choosePackage.Items.AddRange(keys[1].ToArray());
             producerTIN.Items.AddRange(keys[3].ToArray());

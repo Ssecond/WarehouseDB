@@ -179,7 +179,7 @@ namespace DataBase
             }
             else if (listOfTables.Text == tableNames[3])
             {
-                ProducersForm producersForm = new ProducersForm();
+                ProducersForm producersForm = new ProducersForm(true, connection, dictionaries, keys);
                 producersForm.ShowDialog();
             }
             else if (listOfTables.Text == tableNames[4])
@@ -209,7 +209,7 @@ namespace DataBase
             }
             else if (listOfTables.Text == tableNames[3])
             {
-                ProducersForm producersForm = new ProducersForm();
+                ProducersForm producersForm = new ProducersForm(false, connection, dictionaries, keys, viewTables.SelectedRows[0].Cells);
                 producersForm.ShowDialog();
             }
             else if (listOfTables.Text == tableNames[4])
