@@ -1,10 +1,6 @@
-using DocumentFormat.OpenXml.Office.Word;
 using Npgsql;
 using NpgsqlTypes;
-using System;
 using System.Data;
-using System.Resources;
-using System.Windows.Forms;
 
 namespace DataBase
 {
@@ -25,7 +21,7 @@ namespace DataBase
         }
 
         private DataSet? dataSet;
-        private List<Dictionary<string, int>> dictionaries;
+        private List<Dictionary<string, long>> dictionaries;
         private void UpdateData()
         {
             try
@@ -82,11 +78,11 @@ namespace DataBase
             GC.Collect();
         }
         private List<string>[] keys;
-        private List<Dictionary<string, int>> CreateDictionaries()
+        private List<Dictionary<string, long>> CreateDictionaries()
         {
-            keys = new List<string>[3];
+            keys = new List<string>[4];
 
-            Dictionary<string, int> streets = new Dictionary<string, int>();
+            Dictionary<string, long> streets = new Dictionary<string, long>();
             keys[0] = new List<string>();
             for (int i = 0; i < dataSet.Tables[tableNames[4]].Rows.Count; i++)
             {
@@ -97,28 +93,38 @@ namespace DataBase
                     s = dataSet.Tables[tableNames[4]].Rows[i].ItemArray[1] + " " + dataSet.Tables[tableNames[4]].Rows[i].ItemArray[2];
 
                 keys[0].Add(s);
-                streets.Add(s, (int)dataSet.Tables[tableNames[4]].Rows[i].ItemArray[0]);
+                streets.Add(s, (long)(int)dataSet.Tables[tableNames[4]].Rows[i].ItemArray[0]);
             }
 
-            Dictionary<string, int> packages = new Dictionary<string, int>();
+            Dictionary<string, long> packages = new Dictionary<string, long>();
             keys[1] = new List<string>();
             for (int i = 0; i < dataSet.Tables[tableNames[2]].Rows.Count; i++)
             {
                 string s = (string)dataSet.Tables[tableNames[2]].Rows[i].ItemArray[1];
                 keys[1].Add(s);
-                packages.Add(s, (int)dataSet.Tables[tableNames[2]].Rows[i].ItemArray[0]);
+                packages.Add(s, (long)(int)dataSet.Tables[tableNames[2]].Rows[i].ItemArray[0]);
             }
 
-            Dictionary<string, int> goods = new Dictionary<string, int>();
+
+            Dictionary<string, long> goods = new Dictionary<string, long>();
             keys[2] = new List<string>();
             for (int i = 0; i < dataSet.Tables[tableNames[1]].Rows.Count; i++)
             {
                 string s = (string)dataSet.Tables[tableNames[1]].Rows[i].ItemArray[12];
                 keys[2].Add(s);
-                goods.Add(s, (int)dataSet.Tables[tableNames[1]].Rows[i].ItemArray[0]);
+                goods.Add(s, (long)(int)dataSet.Tables[tableNames[1]].Rows[i].ItemArray[0]);
             }
 
-            return new List<Dictionary<string, int>> { streets, packages, goods };
+            Dictionary<string, long> producers = new Dictionary<string, long>();
+            keys[3] = new List<string>();
+            for (int i = 0; i < dataSet.Tables[tableNames[3]].Rows.Count; i++)
+            {
+                string s = (string)dataSet.Tables[tableNames[3]].Rows[i].ItemArray[5] + " " + (string)dataSet.Tables[tableNames[3]].Rows[i].ItemArray[4];
+                keys[3].Add(s);
+                producers.Add(s, (long)dataSet.Tables[tableNames[3]].Rows[i].ItemArray[0]);
+            }
+
+            return new List<Dictionary<string, long>> { streets, packages, goods, producers };
         }
 
         private void exit_Click(object sender, EventArgs e) => this.Close();
@@ -163,7 +169,7 @@ namespace DataBase
             }
             else if (listOfTables.Text == tableNames[1])
             {
-                GoodsForm goodsForm = new GoodsForm();
+                GoodsForm goodsForm = new GoodsForm(true, connection, dictionaries, keys);
                 goodsForm.ShowDialog();
             }
             else if (listOfTables.Text == tableNames[2])
@@ -181,6 +187,7 @@ namespace DataBase
                 StreetsForm streetsForm = new StreetsForm();
                 streetsForm.ShowDialog();
             }
+            UpdateData();
         }
 
         private void editNote_Click(object sender, EventArgs e)
@@ -192,7 +199,7 @@ namespace DataBase
             }
             else if (listOfTables.Text == tableNames[1])
             {
-                GoodsForm goodsForm = new GoodsForm();
+                GoodsForm goodsForm = new GoodsForm(false, connection, dictionaries, keys, viewTables.SelectedRows[0].Cells);
                 goodsForm.ShowDialog();
             }
             else if (listOfTables.Text == tableNames[2])
@@ -210,6 +217,7 @@ namespace DataBase
                 StreetsForm streetsForm = new StreetsForm();
                 streetsForm.ShowDialog();
             }
+            UpdateData();
         }
 
         private void CheaperThanNToolStripMenuItem_Click(object sender, EventArgs e)
@@ -241,10 +249,11 @@ namespace DataBase
         {
             try
             {
-                string command = $"SELECT * FROM {tableNames[1]} WHERE \"Срок годности\" - \"Дата производства\" < 0";
+                string command = $"SELECT * FROM {tableNames[1]} WHERE \"Срок годности\" - @p1 < 0";
                 connection.Open();
 
                 NpgsqlCommand com = new NpgsqlCommand(command, connection);
+                com.Parameters.AddWithValue("@p1", NpgsqlDbType.Date, DateTime.Today);
                 NpgsqlDataAdapter customersAdapter = new NpgsqlDataAdapter(com);
                 customersAdapter.Fill(dataSet, "Запрос");
 

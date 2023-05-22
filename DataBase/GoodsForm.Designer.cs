@@ -33,7 +33,6 @@
             idLabel = new Label();
             nameLabel = new Label();
             signCheckBox = new CheckBox();
-            producerTIN = new TextBox();
             idTextBox = new TextBox();
             clearForm = new Button();
             insertNewNote = new Button();
@@ -54,10 +53,11 @@
             givenDate = new Label();
             experiationDateTextBox = new TextBox();
             experiationDate = new Label();
-            textBox1 = new TextBox();
+            productionDateTextBox = new TextBox();
             productionDateLabel = new Label();
             productNameTextBox = new TextBox();
             productNameLabel = new Label();
+            producerTIN = new ComboBox();
             SuspendLayout();
             // 
             // order
@@ -106,14 +106,6 @@
             signCheckBox.TabIndex = 15;
             signCheckBox.UseVisualStyleBackColor = true;
             // 
-            // producerTIN
-            // 
-            producerTIN.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            producerTIN.Location = new Point(228, 66);
-            producerTIN.Name = "producerTIN";
-            producerTIN.Size = new Size(586, 23);
-            producerTIN.TabIndex = 14;
-            // 
             // idTextBox
             // 
             idTextBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
@@ -132,6 +124,7 @@
             clearForm.TabIndex = 11;
             clearForm.Text = "Отчистить все поля";
             clearForm.UseVisualStyleBackColor = true;
+            clearForm.Click += clearForm_Click;
             // 
             // insertNewNote
             // 
@@ -142,6 +135,7 @@
             insertNewNote.TabIndex = 10;
             insertNewNote.Text = "Вставить новую запись";
             insertNewNote.UseVisualStyleBackColor = true;
+            insertNewNote.Click += insertNewNote_Click;
             // 
             // closeForm
             // 
@@ -152,6 +146,7 @@
             closeForm.TabIndex = 9;
             closeForm.Text = "Закрыть форму";
             closeForm.UseVisualStyleBackColor = true;
+            closeForm.Click += closeForm_Click;
             // 
             // saveChanges
             // 
@@ -162,9 +157,11 @@
             saveChanges.TabIndex = 8;
             saveChanges.Text = "Сохранить изменения сущ. зап.";
             saveChanges.UseVisualStyleBackColor = true;
+            saveChanges.Click += saveChanges_Click;
             // 
             // choosePackage
             // 
+            choosePackage.DropDownStyle = ComboBoxStyle.DropDownList;
             choosePackage.FormattingEnabled = true;
             choosePackage.Location = new Point(228, 37);
             choosePackage.Name = "choosePackage";
@@ -291,13 +288,13 @@
             experiationDate.TabIndex = 22;
             experiationDate.Text = "Срок годности";
             // 
-            // textBox1
+            // productionDateTextBox
             // 
-            textBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            textBox1.Location = new Point(228, 343);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(586, 23);
-            textBox1.TabIndex = 21;
+            productionDateTextBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            productionDateTextBox.Location = new Point(228, 343);
+            productionDateTextBox.Name = "productionDateTextBox";
+            productionDateTextBox.Size = new Size(586, 23);
+            productionDateTextBox.TabIndex = 21;
             // 
             // productionDateLabel
             // 
@@ -325,6 +322,15 @@
             productNameLabel.TabIndex = 22;
             productNameLabel.Text = "Название";
             // 
+            // producerTIN
+            // 
+            producerTIN.DropDownStyle = ComboBoxStyle.DropDownList;
+            producerTIN.FormattingEnabled = true;
+            producerTIN.Location = new Point(228, 66);
+            producerTIN.Name = "producerTIN";
+            producerTIN.Size = new Size(586, 23);
+            producerTIN.TabIndex = 20;
+            // 
             // GoodsForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -333,7 +339,7 @@
             Controls.Add(productNameLabel);
             Controls.Add(productNameTextBox);
             Controls.Add(productionDateLabel);
-            Controls.Add(textBox1);
+            Controls.Add(productionDateTextBox);
             Controls.Add(experiationDate);
             Controls.Add(experiationDateTextBox);
             Controls.Add(givenDate);
@@ -342,6 +348,7 @@
             Controls.Add(inCheckNumber);
             Controls.Add(priceLabel);
             Controls.Add(price);
+            Controls.Add(producerTIN);
             Controls.Add(choosePackage);
             Controls.Add(order);
             Controls.Add(label2);
@@ -354,7 +361,6 @@
             Controls.Add(nameLabel);
             Controls.Add(signData);
             Controls.Add(signCheckBox);
-            Controls.Add(producerTIN);
             Controls.Add(idTextBox);
             Controls.Add(clearForm);
             Controls.Add(insertNewNote);
@@ -373,7 +379,6 @@
         private Label idLabel;
         private Label nameLabel;
         private CheckBox signCheckBox;
-        private TextBox producerTIN;
         private TextBox idTextBox;
         private Button clearForm;
         private Button insertNewNote;
@@ -394,9 +399,10 @@
         private Label givenDate;
         private TextBox experiationDateTextBox;
         private Label experiationDate;
-        private TextBox textBox1;
+        private TextBox productionDateTextBox;
         private Label productionDateLabel;
         private TextBox productNameTextBox;
         private Label productNameLabel;
+        private ComboBox producerTIN;
     }
 }

@@ -1,15 +1,13 @@
 ﻿using Npgsql;
-using System.Data;
-using System.Linq;
 
 namespace DataBase
 {
     public partial class CustomersForm : Form
     {
         private NpgsqlConnection connection;
-        private List<Dictionary<string, int>> dictionaries;
+        private List<Dictionary<string, long>> dictionaries;
         private List<string>[] keys;
-        public CustomersForm(bool isNewNoteAdding, NpgsqlConnection connection, List<Dictionary<string, int>> dictionaries, List<string>[] keys, DataGridViewCellCollection? selectedRowCells = null)
+        public CustomersForm(bool isNewNoteAdding, NpgsqlConnection connection, List<Dictionary<string, long>> dictionaries, List<string>[] keys, DataGridViewCellCollection? selectedRowCells = null)
         {
             InitializeComponent();
             if (isNewNoteAdding)
@@ -44,7 +42,7 @@ namespace DataBase
              "VALUES (@p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10)";
             try
             {
-                if (FormIsFilled())
+                if (FormIsNotFilled())
                     throw new Exception("Заполните все обязательные поля!");
 
                 NpgsqlCommand cmd = new NpgsqlCommand(command, connection);
@@ -73,7 +71,7 @@ namespace DataBase
             }
         }
 
-        private bool FormIsFilled()
+        private bool FormIsNotFilled()
         {
             return string.IsNullOrEmpty(goodsComboBox.Text) || string.IsNullOrEmpty(streetComboBox.Text) || string.IsNullOrEmpty(TIN.Text)
                 || string.IsNullOrEmpty(sumTextBox.Text) || string.IsNullOrEmpty(soldDateTextBox.Text) || string.IsNullOrEmpty(countTextBox.Text)
@@ -100,7 +98,7 @@ namespace DataBase
                              "\"Кол-во\" = @p7, Телефон = @p8, \"Фамилия продавца\" = @p9, " +
                              "\"Номер здания\" = @p10 " +
                              "where \"ИНН\" = @p3";
-            if (FormIsFilled())
+            if (FormIsNotFilled())
                 throw new Exception("Заполните все обязательные поля!");
 
             try
