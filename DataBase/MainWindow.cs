@@ -174,7 +174,7 @@ namespace DataBase
             }
             else if (listOfTables.Text == tableNames[2])
             {
-                PackagesForm packagesForm = new PackagesForm();
+                PackagesForm packagesForm = new PackagesForm(true, connection);
                 packagesForm.ShowDialog();
             }
             else if (listOfTables.Text == tableNames[3])
@@ -204,7 +204,7 @@ namespace DataBase
             }
             else if (listOfTables.Text == tableNames[2])
             {
-                PackagesForm packagesForm = new PackagesForm();
+                PackagesForm packagesForm = new PackagesForm(false, connection, viewTables.SelectedRows[0].Cells);
                 packagesForm.ShowDialog();
             }
             else if (listOfTables.Text == tableNames[3])

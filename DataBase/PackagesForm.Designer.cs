@@ -31,7 +31,7 @@
             idLabel = new Label();
             name = new Label();
             idTextBox = new TextBox();
-            textBox1 = new TextBox();
+            nameTextBox = new TextBox();
             clearForm = new Button();
             insertNewNote = new Button();
             closeForm = new Button();
@@ -65,13 +65,13 @@
             idTextBox.Size = new Size(490, 23);
             idTextBox.TabIndex = 12;
             // 
-            // textBox1
+            // nameTextBox
             // 
-            textBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            textBox1.Location = new Point(228, 37);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(490, 23);
-            textBox1.TabIndex = 13;
+            nameTextBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            nameTextBox.Location = new Point(228, 37);
+            nameTextBox.Name = "nameTextBox";
+            nameTextBox.Size = new Size(490, 23);
+            nameTextBox.TabIndex = 13;
             // 
             // clearForm
             // 
@@ -82,6 +82,7 @@
             clearForm.TabIndex = 11;
             clearForm.Text = "Отчистить все поля";
             clearForm.UseVisualStyleBackColor = true;
+            clearForm.Click += clearForm_Click;
             // 
             // insertNewNote
             // 
@@ -92,6 +93,7 @@
             insertNewNote.TabIndex = 10;
             insertNewNote.Text = "Вставить новую запись";
             insertNewNote.UseVisualStyleBackColor = true;
+            insertNewNote.Click += insertNewNote_Click;
             // 
             // closeForm
             // 
@@ -102,6 +104,7 @@
             closeForm.TabIndex = 9;
             closeForm.Text = "Закрыть форму";
             closeForm.UseVisualStyleBackColor = true;
+            closeForm.Click += closeForm_Click;
             // 
             // saveChanges
             // 
@@ -112,6 +115,7 @@
             saveChanges.TabIndex = 8;
             saveChanges.Text = "Сохранить изменения сущ. зап.";
             saveChanges.UseVisualStyleBackColor = true;
+            saveChanges.Click += saveChanges_Click;
             // 
             // PackagesForm
             // 
@@ -121,7 +125,7 @@
             Controls.Add(idLabel);
             Controls.Add(name);
             Controls.Add(idTextBox);
-            Controls.Add(textBox1);
+            Controls.Add(nameTextBox);
             Controls.Add(clearForm);
             Controls.Add(insertNewNote);
             Controls.Add(closeForm);
@@ -137,7 +141,7 @@
         private Label idLabel;
         private Label name;
         private TextBox idTextBox;
-        private TextBox textBox1;
+        private TextBox nameTextBox;
         private Button clearForm;
         private Button insertNewNote;
         private Button closeForm;
