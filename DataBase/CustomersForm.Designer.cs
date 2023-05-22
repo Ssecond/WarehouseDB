@@ -37,7 +37,7 @@
             countLabel = new Label();
             countTextBox = new TextBox();
             soldDateTextBox = new TextBox();
-            goodsTextBox = new ComboBox();
+            goodsComboBox = new ComboBox();
             isCashLabel = new Label();
             soldDateLabel = new Label();
             outCheckLabel = new Label();
@@ -63,11 +63,11 @@
             houseNumberLabel.TabIndex = 51;
             houseNumberLabel.Text = "Номер здания";
             // 
-            // houseNumberTTextBox
+            // houseNumberTextBox
             // 
             houseNumberTextBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             houseNumberTextBox.Location = new Point(228, 267);
-            houseNumberTextBox.Name = "houseNumberTTextBox";
+            houseNumberTextBox.Name = "houseNumberTextBox";
             houseNumberTextBox.Size = new Size(584, 23);
             houseNumberTextBox.TabIndex = 45;
             // 
@@ -130,14 +130,15 @@
             soldDateTextBox.Size = new Size(584, 23);
             soldDateTextBox.TabIndex = 41;
             // 
-            // goodsTextBox
+            // goodsComboBox
             // 
-            goodsTextBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            goodsTextBox.FormattingEnabled = true;
-            goodsTextBox.Location = new Point(228, 10);
-            goodsTextBox.Name = "goodsTextBox";
-            goodsTextBox.Size = new Size(584, 23);
-            goodsTextBox.TabIndex = 40;
+            goodsComboBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            goodsComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            goodsComboBox.FormattingEnabled = true;
+            goodsComboBox.Location = new Point(228, 10);
+            goodsComboBox.Name = "goodsComboBox";
+            goodsComboBox.Size = new Size(584, 23);
+            goodsComboBox.TabIndex = 40;
             // 
             // isCashLabel
             // 
@@ -228,6 +229,7 @@
             clearForm.TabIndex = 26;
             clearForm.Text = "Отчистить все поля";
             clearForm.UseVisualStyleBackColor = true;
+            clearForm.Click += clearForm_Click;
             // 
             // insertNewNote
             // 
@@ -249,6 +251,7 @@
             closeForm.TabIndex = 24;
             closeForm.Text = "Закрыть форму";
             closeForm.UseVisualStyleBackColor = true;
+            closeForm.Click += closeForm_Click;
             // 
             // saveChanges
             // 
@@ -259,10 +262,12 @@
             saveChanges.TabIndex = 23;
             saveChanges.Text = "Сохранить изменения сущ. зап.";
             saveChanges.UseVisualStyleBackColor = true;
+            saveChanges.Click += saveChanges_Click;
             // 
             // streetComboBox
             // 
             streetComboBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            streetComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             streetComboBox.FormattingEnabled = true;
             streetComboBox.Location = new Point(228, 37);
             streetComboBox.Name = "streetComboBox";
@@ -284,7 +289,7 @@
             Controls.Add(countTextBox);
             Controls.Add(soldDateTextBox);
             Controls.Add(streetComboBox);
-            Controls.Add(goodsTextBox);
+            Controls.Add(goodsComboBox);
             Controls.Add(isCashLabel);
             Controls.Add(soldDateLabel);
             Controls.Add(outCheckLabel);
@@ -314,7 +319,7 @@
         private Label countLabel;
         private TextBox countTextBox;
         private TextBox soldDateTextBox;
-        private ComboBox goodsTextBox;
+        private ComboBox goodsComboBox;
         private Label isCashLabel;
         private Label soldDateLabel;
         private Label outCheckLabel;

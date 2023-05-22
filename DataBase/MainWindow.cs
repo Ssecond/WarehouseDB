@@ -79,10 +79,13 @@ namespace DataBase
             new ProgramAbout().ShowDialog();
             GC.Collect();
         }
-
+        private List<string>[] keys;
         private List<Dictionary<string, int>> CreateDictionaries()
         {
+            keys = new List<string>[3];
+
             Dictionary<string, int> streets = new Dictionary<string, int>();
+            keys[0] = new List<string>();
             for (int i = 0; i < dataSet.Tables[tableNames[4]].Rows.Count; i++)
             {
                 string s;
@@ -91,14 +94,29 @@ namespace DataBase
                 else
                     s = dataSet.Tables[tableNames[4]].Rows[i].ItemArray[1] + " " + dataSet.Tables[tableNames[4]].Rows[i].ItemArray[2];
 
+                keys[0].Add(s);
                 streets.Add(s, (int)dataSet.Tables[tableNames[4]].Rows[i].ItemArray[0]);
             }
 
             Dictionary<string, int> packages = new Dictionary<string, int>();
+            keys[1] = new List<string>();
             for (int i = 0; i < dataSet.Tables[tableNames[2]].Rows.Count; i++)
-                packages.Add((string)dataSet.Tables[tableNames[2]].Rows[i].ItemArray[1], (int)dataSet.Tables[tableNames[2]].Rows[i].ItemArray[0]);
+            {
+                string s = (string)dataSet.Tables[tableNames[2]].Rows[i].ItemArray[1];
+                keys[1].Add(s);
+                packages.Add(s, (int)dataSet.Tables[tableNames[2]].Rows[i].ItemArray[0]);
+            }
 
-            return new List<Dictionary<string, int>> { streets, packages };
+            Dictionary<string, int> goods = new Dictionary<string, int>();
+            keys[2] = new List<string>();
+            for (int i = 0; i < dataSet.Tables[tableNames[1]].Rows.Count; i++)
+            {
+                string s = (string)dataSet.Tables[tableNames[1]].Rows[i].ItemArray[12];
+                keys[2].Add(s);
+                goods.Add(s, (int)dataSet.Tables[tableNames[1]].Rows[i].ItemArray[0]);
+            }
+
+            return new List<Dictionary<string, int>> { streets, packages, goods };
         }
 
         private void exit_Click(object sender, EventArgs e) => this.Close();
@@ -138,7 +156,7 @@ namespace DataBase
         {
             if (listOfTables.Text == tableNames[0])
             {
-                CustomersForm customersForm = new CustomersForm(true, connection);
+                CustomersForm customersForm = new CustomersForm(true, connection, dictionaries, keys);
                 customersForm.ShowDialog();
             }
             else if (listOfTables.Text == tableNames[1])
@@ -167,7 +185,7 @@ namespace DataBase
         {
             if (listOfTables.Text == tableNames[0])
             {
-                CustomersForm customersForm = new CustomersForm(false, connection);
+                CustomersForm customersForm = new CustomersForm(false, connection, dictionaries, keys, viewTables.SelectedRows[0].Cells);
                 customersForm.ShowDialog();
             }
             else if (listOfTables.Text == tableNames[1])
