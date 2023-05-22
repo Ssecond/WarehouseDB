@@ -32,9 +32,9 @@
             closeForm = new Button();
             insertNewNote = new Button();
             clearForm = new Button();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            checkBox1 = new CheckBox();
+            nameStreet = new TextBox();
+            streetRoad = new TextBox();
+            orderStreet = new CheckBox();
             name = new Label();
             nameSign = new Label();
             order = new Label();
@@ -51,6 +51,7 @@
             saveChanges.TabIndex = 0;
             saveChanges.Text = "Сохранить изменения сущ. зап.";
             saveChanges.UseVisualStyleBackColor = true;
+            saveChanges.Click += saveChanges_Click;
             // 
             // closeForm
             // 
@@ -61,6 +62,7 @@
             closeForm.TabIndex = 1;
             closeForm.Text = "Закрыть форму";
             closeForm.UseVisualStyleBackColor = true;
+            closeForm.Click += closeForm_Click;
             // 
             // insertNewNote
             // 
@@ -71,6 +73,7 @@
             insertNewNote.TabIndex = 2;
             insertNewNote.Text = "Вставить новую запись";
             insertNewNote.UseVisualStyleBackColor = true;
+            insertNewNote.Click += insertNewNote_Click;
             // 
             // clearForm
             // 
@@ -81,32 +84,33 @@
             clearForm.TabIndex = 3;
             clearForm.Text = "Отчистить все поля";
             clearForm.UseVisualStyleBackColor = true;
+            clearForm.Click += clearForm_Click;
             // 
-            // textBox1
+            // nameStreet
             // 
-            textBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            textBox1.Location = new Point(228, 37);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(557, 23);
-            textBox1.TabIndex = 4;
+            nameStreet.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            nameStreet.Location = new Point(228, 37);
+            nameStreet.Name = "nameStreet";
+            nameStreet.Size = new Size(557, 23);
+            nameStreet.TabIndex = 4;
             // 
-            // textBox2
+            // streetRoad
             // 
-            textBox2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            textBox2.Location = new Point(228, 66);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(557, 23);
-            textBox2.TabIndex = 5;
+            streetRoad.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            streetRoad.Location = new Point(228, 66);
+            streetRoad.Name = "streetRoad";
+            streetRoad.Size = new Size(557, 23);
+            streetRoad.TabIndex = 5;
             // 
-            // checkBox1
+            // orderStreet
             // 
-            checkBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(228, 95);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(15, 14);
-            checkBox1.TabIndex = 6;
-            checkBox1.UseVisualStyleBackColor = true;
+            orderStreet.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            orderStreet.AutoSize = true;
+            orderStreet.Location = new Point(228, 95);
+            orderStreet.Name = "orderStreet";
+            orderStreet.Size = new Size(15, 14);
+            orderStreet.TabIndex = 6;
+            orderStreet.UseVisualStyleBackColor = true;
             // 
             // name
             // 
@@ -162,10 +166,10 @@
             Controls.Add(nameSign);
             Controls.Add(idLabel);
             Controls.Add(name);
-            Controls.Add(checkBox1);
-            Controls.Add(textBox2);
+            Controls.Add(orderStreet);
+            Controls.Add(streetRoad);
             Controls.Add(idTextBox);
-            Controls.Add(textBox1);
+            Controls.Add(nameStreet);
             Controls.Add(clearForm);
             Controls.Add(insertNewNote);
             Controls.Add(closeForm);
@@ -182,9 +186,9 @@
         private Button closeForm;
         private Button insertNewNote;
         private Button clearForm;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private CheckBox checkBox1;
+        private TextBox nameStreet;
+        private TextBox streetRoad;
+        private CheckBox orderStreet;
         private Label name;
         private Label nameSign;
         private Label order;

@@ -184,7 +184,7 @@ namespace DataBase
             }
             else if (listOfTables.Text == tableNames[4])
             {
-                StreetsForm streetsForm = new StreetsForm();
+                StreetsForm streetsForm = new StreetsForm(true, connection);
                 streetsForm.ShowDialog();
             }
             UpdateData();
@@ -214,7 +214,7 @@ namespace DataBase
             }
             else if (listOfTables.Text == tableNames[4])
             {
-                StreetsForm streetsForm = new StreetsForm();
+                StreetsForm streetsForm = new StreetsForm(false, connection, viewTables.SelectedRows[0].Cells);
                 streetsForm.ShowDialog();
             }
             UpdateData();

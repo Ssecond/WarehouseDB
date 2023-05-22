@@ -1,14 +1,4 @@
 ﻿using Npgsql;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Reflection.Emit;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace DataBase
 {
@@ -96,10 +86,6 @@ namespace DataBase
 
         private void saveChanges_Click(object sender, EventArgs e)
         {
-            //string command = "UPDATE Товары SET Упаковка = @p2, \"ИНН производителя\" = @p3, \"Дата сертификата соотв\" = @p4, \"Сертификат соотв\" = @p5, " +
-            //     "\"Номер выходной накладной\" = @p6, Инструкции = @p7, Цена = @p8, \"Номер приходной накладной ведомос\" = @p9, " +
-            //     "\"Дата поступления\" = @p10, \"Срок годности\" = @p11, \"Дата производства\" = @p12, Название = @p13 " +
-            //     "where \"ИНН производителя\" = @p3";
             string command = "UPDATE Поставщики SET ИНН = @p1, \"Признак посредника\" = @p2, \"Номер здания\" = @p3, " +
                  "Телефон  = @p4, \"Название компании\" = @p5, \"Правовая форма\" = @p6, Улица = @p7 " +
                  "where ИНН = @p1";
