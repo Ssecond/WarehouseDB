@@ -25,17 +25,16 @@ namespace DataBase
 
             if (selectedRowCells != null)
             {
-#error Не подгружаются значения в боксы.
-                var f = dictionaries[2]; // goodsComboBox.SelectedIndex = 
-                streetComboBox.SelectedIndex = dictionaries[0][(string)selectedRowCells[1].Value];
-                TIN.Text = (string)selectedRowCells[2].Value;
+                goodsComboBox.SelectedItem = dictionaries[2].FirstOrDefault(x => x.Value == (int)selectedRowCells[0].Value).Key;
+                streetComboBox.SelectedItem = dictionaries[0].FirstOrDefault(x => x.Value == (int)selectedRowCells[1].Value).Key;
+                TIN.Text = ((int)selectedRowCells[2].Value).ToString();
                 isCashCheckBox.Checked = (bool)selectedRowCells[3].Value;
-                sumTextBox.Text = (string)selectedRowCells[4].Value;
-                soldDateTextBox.Text = (string)selectedRowCells[5].Value;
-                countTextBox.Text = (string)selectedRowCells[6].Value;
+                sumTextBox.Text = ((int)selectedRowCells[4].Value).ToString();
+                soldDateTextBox.Text = ((DateTime)selectedRowCells[5].Value).ToString("dd.MM.yyyy");
+                countTextBox.Text = ((int)selectedRowCells[6].Value).ToString();
                 phoneNumberTextBox.Text = (string)selectedRowCells[7].Value;
                 sellerSurnameTextBox.Text = (string)selectedRowCells[8].Value;
-                houseNumberTextBox.Text = (string)selectedRowCells[9].Value;
+                houseNumberTextBox.Text = ((int)selectedRowCells[9].Value).ToString();
             }
         }
 
