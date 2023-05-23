@@ -61,8 +61,10 @@ namespace DataBase
         {
             foreach (Control control in this.Controls)
                 if (control is TextBox)
+                {
                     if (!((TextBox)control).ReadOnly)
                         ((TextBox)control).Text = string.Empty;
+                }
         }
 
         private void saveChanges_Click(object sender, EventArgs e)

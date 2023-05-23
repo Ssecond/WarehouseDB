@@ -93,7 +93,10 @@ namespace DataBase
         {
             foreach (Control control in this.Controls)
                 if (control is TextBox)
-                    ((TextBox)control).Text = string.Empty;
+                {
+                    if (!((TextBox)control).ReadOnly)
+                        ((TextBox)control).Text = string.Empty;
+                }
                 else if (control is ComboBox)
                     ((ComboBox)control).SelectedItem = null;
                 else if (control is CheckBox)

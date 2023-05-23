@@ -10,8 +10,8 @@ namespace DataBase
         /// <summary>
         /// Put your data instead of '_' sign: "Server=_;Port=_;User ID=_;Password=_;Database=_;"
         /// </summary>
-        private const string connectionParams = "Server=192.168.0.20;Port=5432;User ID=postgres;Password=333;Database=GoodsStorage;";
-        // private const string connectionParams = "Server=localhost;Port=5432;User ID=postgres;Password=333;Database=GoodsStorage;";
+        // private const string connectionParams = "Server=192.168.0.20;Port=5432;User ID=postgres;Password=333;Database=GoodsStorage;";
+        private const string connectionParams = "Server=localhost;Port=5432;User ID=postgres;Password=333;Database=GoodsStorage;";
         private string[] tableNames = { "Покупатели", "Товары", "Упаковки", "Поставщики", "Улицы" };
         public MainWindow()
         {
@@ -192,30 +192,37 @@ namespace DataBase
 
         private void editNote_Click(object sender, EventArgs e)
         {
-            if (listOfTables.Text == tableNames[0])
+            try
             {
-                CustomersForm customersForm = new CustomersForm(false, connection, dictionaries, keys, viewTables.SelectedRows[0].Cells);
-                customersForm.ShowDialog();
+                if (listOfTables.Text == tableNames[0])
+                {
+                    CustomersForm customersForm = new CustomersForm(false, connection, dictionaries, keys, viewTables.SelectedRows[0].Cells);
+                    customersForm.ShowDialog();
+                }
+                else if (listOfTables.Text == tableNames[1])
+                {
+                    GoodsForm goodsForm = new GoodsForm(false, connection, dictionaries, keys, viewTables.SelectedRows[0].Cells);
+                    goodsForm.ShowDialog();
+                }
+                else if (listOfTables.Text == tableNames[2])
+                {
+                    PackagesForm packagesForm = new PackagesForm(false, connection, viewTables.SelectedRows[0].Cells);
+                    packagesForm.ShowDialog();
+                }
+                else if (listOfTables.Text == tableNames[3])
+                {
+                    ProducersForm producersForm = new ProducersForm(false, connection, dictionaries, keys, viewTables.SelectedRows[0].Cells);
+                    producersForm.ShowDialog();
+                }
+                else if (listOfTables.Text == tableNames[4])
+                {
+                    StreetsForm streetsForm = new StreetsForm(false, connection, viewTables.SelectedRows[0].Cells);
+                    streetsForm.ShowDialog();
+                }
             }
-            else if (listOfTables.Text == tableNames[1])
+            catch (Exception ex)
             {
-                GoodsForm goodsForm = new GoodsForm(false, connection, dictionaries, keys, viewTables.SelectedRows[0].Cells);
-                goodsForm.ShowDialog();
-            }
-            else if (listOfTables.Text == tableNames[2])
-            {
-                PackagesForm packagesForm = new PackagesForm(false, connection, viewTables.SelectedRows[0].Cells);
-                packagesForm.ShowDialog();
-            }
-            else if (listOfTables.Text == tableNames[3])
-            {
-                ProducersForm producersForm = new ProducersForm(false, connection, dictionaries, keys, viewTables.SelectedRows[0].Cells);
-                producersForm.ShowDialog();
-            }
-            else if (listOfTables.Text == tableNames[4])
-            {
-                StreetsForm streetsForm = new StreetsForm(false, connection, viewTables.SelectedRows[0].Cells);
-                streetsForm.ShowDialog();
+                MessageBox.Show(ex.Message);
             }
             UpdateData();
         }

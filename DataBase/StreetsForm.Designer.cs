@@ -45,9 +45,10 @@
             // saveChanges
             // 
             saveChanges.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            saveChanges.Location = new Point(446, 135);
+            saveChanges.Location = new Point(564, 180);
+            saveChanges.Margin = new Padding(3, 4, 3, 4);
             saveChanges.Name = "saveChanges";
-            saveChanges.Size = new Size(194, 23);
+            saveChanges.Size = new Size(222, 31);
             saveChanges.TabIndex = 0;
             saveChanges.Text = "Сохранить изменения сущ. зап.";
             saveChanges.UseVisualStyleBackColor = true;
@@ -56,9 +57,10 @@
             // closeForm
             // 
             closeForm.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            closeForm.Location = new Point(18, 135);
+            closeForm.Location = new Point(21, 180);
+            closeForm.Margin = new Padding(3, 4, 3, 4);
             closeForm.Name = "closeForm";
-            closeForm.Size = new Size(115, 23);
+            closeForm.Size = new Size(131, 31);
             closeForm.TabIndex = 1;
             closeForm.Text = "Закрыть форму";
             closeForm.UseVisualStyleBackColor = true;
@@ -67,9 +69,10 @@
             // insertNewNote
             // 
             insertNewNote.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            insertNewNote.Location = new Point(646, 135);
+            insertNewNote.Location = new Point(792, 180);
+            insertNewNote.Margin = new Padding(3, 4, 3, 4);
             insertNewNote.Name = "insertNewNote";
-            insertNewNote.Size = new Size(145, 23);
+            insertNewNote.Size = new Size(166, 31);
             insertNewNote.TabIndex = 2;
             insertNewNote.Text = "Вставить новую запись";
             insertNewNote.UseVisualStyleBackColor = true;
@@ -78,9 +81,10 @@
             // clearForm
             // 
             clearForm.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            clearForm.Location = new Point(228, 135);
+            clearForm.Location = new Point(261, 180);
+            clearForm.Margin = new Padding(3, 4, 3, 4);
             clearForm.Name = "clearForm";
-            clearForm.Size = new Size(128, 23);
+            clearForm.Size = new Size(146, 31);
             clearForm.TabIndex = 3;
             clearForm.Text = "Отчистить все поля";
             clearForm.UseVisualStyleBackColor = true;
@@ -89,79 +93,83 @@
             // nameStreet
             // 
             nameStreet.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            nameStreet.Location = new Point(228, 37);
+            nameStreet.Location = new Point(287, 49);
+            nameStreet.Margin = new Padding(3, 4, 3, 4);
             nameStreet.Name = "nameStreet";
-            nameStreet.Size = new Size(557, 23);
+            nameStreet.Size = new Size(664, 27);
             nameStreet.TabIndex = 4;
             // 
             // streetRoad
             // 
             streetRoad.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            streetRoad.Location = new Point(228, 66);
+            streetRoad.Location = new Point(287, 88);
+            streetRoad.Margin = new Padding(3, 4, 3, 4);
             streetRoad.Name = "streetRoad";
-            streetRoad.Size = new Size(557, 23);
+            streetRoad.Size = new Size(664, 27);
             streetRoad.TabIndex = 5;
             // 
             // orderStreet
             // 
             orderStreet.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             orderStreet.AutoSize = true;
-            orderStreet.Location = new Point(228, 95);
+            orderStreet.Location = new Point(287, 130);
+            orderStreet.Margin = new Padding(3, 4, 3, 4);
             orderStreet.Name = "orderStreet";
-            orderStreet.Size = new Size(15, 14);
+            orderStreet.Size = new Size(18, 17);
             orderStreet.TabIndex = 6;
             orderStreet.UseVisualStyleBackColor = true;
             // 
             // name
             // 
             name.AutoSize = true;
-            name.Location = new Point(12, 37);
+            name.Location = new Point(14, 49);
             name.Name = "name";
-            name.Size = new Size(59, 15);
+            name.Size = new Size(77, 20);
             name.TabIndex = 7;
             name.Text = "Название";
             // 
             // nameSign
             // 
             nameSign.AutoSize = true;
-            nameSign.Location = new Point(12, 69);
+            nameSign.Location = new Point(14, 92);
             nameSign.Name = "nameSign";
-            nameSign.Size = new Size(210, 15);
+            nameSign.Size = new Size(263, 20);
             nameSign.TabIndex = 7;
             nameSign.Text = "Признак адреса (улица, шоссе и т.д.)";
             // 
             // order
             // 
             order.AutoSize = true;
-            order.Location = new Point(12, 95);
+            order.Location = new Point(14, 127);
             order.Name = "order";
-            order.Size = new Size(197, 15);
+            order.Size = new Size(254, 20);
             order.TabIndex = 7;
             order.Text = "Порядок (до названия ли признак)";
             // 
             // idLabel
             // 
             idLabel.AutoSize = true;
-            idLabel.Location = new Point(12, 9);
+            idLabel.Location = new Point(14, 12);
             idLabel.Name = "idLabel";
-            idLabel.Size = new Size(24, 15);
+            idLabel.Size = new Size(30, 20);
             idLabel.TabIndex = 7;
             idLabel.Text = "ИД";
             // 
             // idTextBox
             // 
             idTextBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            idTextBox.Location = new Point(228, 6);
+            idTextBox.Location = new Point(287, 8);
+            idTextBox.Margin = new Padding(3, 4, 3, 4);
             idTextBox.Name = "idTextBox";
             idTextBox.ReadOnly = true;
-            idTextBox.Size = new Size(557, 23);
+            idTextBox.Size = new Size(664, 27);
             idTextBox.TabIndex = 4;
             // 
             // StreetsForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(797, 171);
+            ClientSize = new Size(965, 228);
             Controls.Add(order);
             Controls.Add(nameSign);
             Controls.Add(idLabel);
@@ -174,6 +182,7 @@
             Controls.Add(insertNewNote);
             Controls.Add(closeForm);
             Controls.Add(saveChanges);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "StreetsForm";
             Text = "Справочник улиц";
             ResumeLayout(false);

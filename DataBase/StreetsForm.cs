@@ -65,8 +65,10 @@ namespace DataBase
         {
             foreach (Control control in this.Controls)
                 if (control is TextBox)
+                {
                     if (!((TextBox)control).ReadOnly)
                         ((TextBox)control).Text = string.Empty;
+                }
                 else if (control is CheckBox)
                     ((CheckBox)control).Checked = false;
         }
